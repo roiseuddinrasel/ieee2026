@@ -1,0 +1,1710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>ETIC-2026 | Engineering, Technology and Innovation Conference</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --navy: #05101f;
+  --navy2: #091929;
+  --navy3: #0d2240;
+  --blue: #1565c0;
+  --blue-light: #2979ff;
+  --cyan: #00b4d8;
+  --gold: #f0b429;
+  --gold2: #ffd166;
+  --white: #f4f8ff;
+  --muted: #8da8c4;
+  --border: rgba(21,101,192,0.25);
+  --card-bg: rgba(9,25,41,0.85);
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+html{scroll-behavior:smooth}
+
+body{
+  background:var(--navy);
+  color:var(--white);
+  font-family:'DM Sans',sans-serif;
+  font-size:16px;
+  line-height:1.65;
+  overflow-x:hidden;
+}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--navy)}
+::-webkit-scrollbar-thumb{background:var(--blue);border-radius:3px}
+
+/* ── TOP BAR ── */
+.topbar{
+  background:var(--blue);
+  color:#fff;
+  font-size:.78rem;
+  letter-spacing:.06em;
+  font-weight:600;
+  text-align:center;
+  padding:.45rem 1rem;
+  position:relative;
+  z-index:200;
+}
+.topbar span{opacity:.75;margin:0 .6rem}
+
+/* ── NAV ── */
+nav{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(5,16,31,.97);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--border);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:.75rem 4vw;
+  gap:1.5rem;
+}
+
+.nav-logo{
+  display:flex;
+  align-items:center;
+  gap:.9rem;
+  text-decoration:none;
+  flex-shrink:0;
+}
+.nav-logo-badge{
+  width:48px;height:48px;
+  background:linear-gradient(135deg,var(--blue),var(--cyan));
+  border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Bebas Neue',sans-serif;
+  font-size:1.25rem;
+  color:#fff;
+  letter-spacing:.05em;
+  box-shadow:0 0 18px rgba(41,121,255,.4);
+}
+.nav-logo-text{line-height:1.1}
+.nav-logo-text strong{
+  display:block;
+  font-family:'Bebas Neue',sans-serif;
+  font-size:1.35rem;
+  letter-spacing:.12em;
+  color:var(--white);
+}
+.nav-logo-text small{
+  font-size:.68rem;
+  color:var(--muted);
+  letter-spacing:.06em;
+  text-transform:uppercase;
+}
+
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:.15rem;
+  list-style:none;
+}
+.nav-links a{
+  color:var(--muted);
+  text-decoration:none;
+  font-size:.82rem;
+  font-weight:500;
+  letter-spacing:.04em;
+  padding:.45rem .8rem;
+  border-radius:6px;
+  transition:all .2s;
+  white-space:nowrap;
+}
+.nav-links a:hover{color:var(--white);background:rgba(41,121,255,.12)}
+
+.nav-cta{
+  display:flex;gap:.6rem;flex-shrink:0;
+}
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+  padding:.55rem 1.4rem;
+  border-radius:7px;
+  font-size:.83rem;
+  font-weight:600;
+  letter-spacing:.04em;
+  cursor:pointer;
+  text-decoration:none;
+  transition:all .22s;
+  border:none;
+}
+.btn-primary{
+  background:linear-gradient(135deg,var(--blue),var(--blue-light));
+  color:#fff;
+  box-shadow:0 4px 18px rgba(41,121,255,.35);
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(41,121,255,.5)}
+.btn-outline{
+  background:transparent;
+  color:var(--white);
+  border:1.5px solid rgba(255,255,255,.25);
+}
+.btn-outline:hover{border-color:var(--cyan);color:var(--cyan);transform:translateY(-2px)}
+.btn-gold{
+  background:linear-gradient(135deg,var(--gold),var(--gold2));
+  color:var(--navy);
+  box-shadow:0 4px 18px rgba(240,180,41,.3);
+}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(240,180,41,.5)}
+
+/* ── HERO ── */
+.hero{
+  position:relative;
+  min-height:92vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  overflow:hidden;
+  padding:5rem 4vw 4rem;
+}
+
+/* animated grid background */
+.hero-grid{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(21,101,192,.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(21,101,192,.12) 1px, transparent 1px);
+  background-size:60px 60px;
+  mask-image:radial-gradient(ellipse 80% 80% at 50% 40%, black 40%, transparent 100%);
+}
+.hero-glow{
+  position:absolute;
+  width:800px;height:800px;
+  background:radial-gradient(circle, rgba(21,101,192,.22) 0%, transparent 70%);
+  top:-200px;right:-200px;
+  pointer-events:none;
+}
+.hero-glow2{
+  position:absolute;
+  width:500px;height:500px;
+  background:radial-gradient(circle, rgba(0,180,216,.12) 0%, transparent 70%);
+  bottom:-100px;left:-100px;
+  pointer-events:none;
+}
+
+.hero-inner{
+  position:relative;
+  z-index:2;
+  max-width:900px;
+}
+
+.hero-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:.6rem;
+  background:rgba(21,101,192,.2);
+  border:1px solid rgba(41,121,255,.35);
+  border-radius:50px;
+  padding:.4rem 1rem;
+  font-size:.76rem;
+  letter-spacing:.1em;
+  font-weight:600;
+  color:var(--cyan);
+  text-transform:uppercase;
+  margin-bottom:1.6rem;
+  animation:fadeUp .7s both;
+}
+.hero-badge::before{
+  content:'';
+  width:7px;height:7px;
+  background:var(--cyan);
+  border-radius:50%;
+  animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+  0%,100%{box-shadow:0 0 0 0 rgba(0,180,216,.6)}
+  50%{box-shadow:0 0 0 6px rgba(0,180,216,0)}
+}
+
+.hero-title{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(3rem,7vw,6.5rem);
+  line-height:.95;
+  letter-spacing:.03em;
+  margin-bottom:1rem;
+  animation:fadeUp .7s .1s both;
+}
+.hero-title .line1{display:block;color:var(--white)}
+.hero-title .line2{
+  display:block;
+  background:linear-gradient(135deg,var(--cyan),var(--blue-light));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.hero-title .line3{display:block;color:var(--gold)}
+
+.hero-sub{
+  font-size:1.1rem;
+  color:var(--muted);
+  max-width:600px;
+  margin-bottom:2rem;
+  font-weight:300;
+  animation:fadeUp .7s .2s both;
+}
+.hero-sub strong{color:var(--white);font-weight:600}
+
+.hero-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.8rem;
+  margin-bottom:3.5rem;
+  animation:fadeUp .7s .3s both;
+}
+
+.hero-meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:2rem;
+  animation:fadeUp .7s .4s both;
+}
+.hero-meta-item{
+  display:flex;
+  align-items:center;
+  gap:.65rem;
+  font-size:.85rem;
+  color:var(--muted);
+}
+.hero-meta-item .icon{
+  width:34px;height:34px;
+  background:rgba(21,101,192,.2);
+  border:1px solid var(--border);
+  border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1rem;
+  flex-shrink:0;
+}
+.hero-meta-item strong{display:block;color:var(--white);font-weight:600;font-size:.9rem}
+
+/* floating card */
+.hero-card{
+  position:absolute;
+  right:4vw;
+  top:50%;
+  transform:translateY(-50%);
+  width:min(380px,40vw);
+  background:var(--card-bg);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:2rem;
+  backdrop-filter:blur(20px);
+  box-shadow:0 20px 60px rgba(0,0,0,.5);
+  z-index:2;
+  animation:fadeLeft .9s .3s both;
+}
+.hero-card-title{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:1.3rem;
+  letter-spacing:.1em;
+  color:var(--cyan);
+  margin-bottom:1.2rem;
+  padding-bottom:.8rem;
+  border-bottom:1px solid var(--border);
+}
+.hero-card-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:.55rem 0;
+  border-bottom:1px solid rgba(21,101,192,.1);
+  font-size:.83rem;
+}
+.hero-card-row:last-child{border-bottom:none}
+.hero-card-row .label{color:var(--muted)}
+.hero-card-row .val{
+  font-weight:600;
+  color:var(--white);
+  text-align:right;
+  max-width:55%;
+}
+.badge-ieee{
+  display:inline-block;
+  background:linear-gradient(135deg,#00599c,#006bbd);
+  color:#fff;
+  font-size:.7rem;
+  font-weight:700;
+  letter-spacing:.06em;
+  padding:.2rem .6rem;
+  border-radius:4px;
+}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeLeft{from{opacity:0;transform:translate(40px,-50%)}to{opacity:1;transform:translate(0,-50%)}}
+
+/* ── COUNTDOWN ── */
+.countdown-bar{
+  background:linear-gradient(135deg,var(--blue) 0%,#0a2a5e 100%);
+  border-top:1px solid rgba(41,121,255,.3);
+  border-bottom:1px solid rgba(41,121,255,.3);
+  padding:2.5rem 4vw;
+  text-align:center;
+}
+.countdown-label{
+  font-size:.75rem;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.6);
+  font-weight:600;
+  margin-bottom:1.2rem;
+}
+.countdown-units{
+  display:flex;
+  justify-content:center;
+  gap:1.5rem;
+  flex-wrap:wrap;
+}
+.countdown-unit{
+  min-width:90px;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:12px;
+  padding:1rem .5rem .8rem;
+}
+.countdown-num{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:3rem;
+  line-height:1;
+  letter-spacing:.05em;
+  color:#fff;
+}
+.countdown-unit-label{
+  font-size:.67rem;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.55);
+  font-weight:600;
+  margin-top:.3rem;
+}
+
+/* ── STATS ── */
+.stats{
+  padding:4.5rem 4vw;
+  background:var(--navy2);
+  border-bottom:1px solid var(--border);
+}
+.stats-inner{
+  max-width:1100px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:2px;
+  background:var(--border);
+  border:1px solid var(--border);
+  border-radius:14px;
+  overflow:hidden;
+}
+.stat-cell{
+  background:var(--navy2);
+  padding:2.2rem 1.5rem;
+  text-align:center;
+  position:relative;
+  transition:background .25s;
+}
+.stat-cell:hover{background:var(--navy3)}
+.stat-num{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:3.2rem;
+  line-height:1;
+  letter-spacing:.04em;
+  background:linear-gradient(135deg,var(--cyan),var(--blue-light));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.stat-suffix{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:2rem;
+  color:var(--gold);
+}
+.stat-label{
+  font-size:.78rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--muted);
+  font-weight:600;
+  margin-top:.4rem;
+}
+
+/* ── SECTION COMMON ── */
+.section{padding:6rem 4vw}
+.section-inner{max-width:1100px;margin:0 auto}
+
+.section-eyebrow{
+  font-size:.72rem;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  font-weight:700;
+  color:var(--cyan);
+  margin-bottom:.8rem;
+}
+.section-title{
+  font-family:'DM Serif Display',serif;
+  font-size:clamp(2rem,4vw,3rem);
+  line-height:1.15;
+  color:var(--white);
+  margin-bottom:1rem;
+}
+.section-title em{
+  font-style:italic;
+  color:var(--gold);
+}
+.section-desc{
+  color:var(--muted);
+  max-width:620px;
+  font-size:.97rem;
+  line-height:1.75;
+}
+
+/* ── ABOUT ── */
+.about-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:4rem;
+  align-items:center;
+  margin-top:3.5rem;
+}
+.about-visual{
+  position:relative;
+}
+.about-img-frame{
+  background:var(--navy3);
+  border:1px solid var(--border);
+  border-radius:16px;
+  overflow:hidden;
+  aspect-ratio:4/3;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+}
+.about-img-frame::before{
+  content:'';
+  position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(21,101,192,.2),rgba(0,180,216,.1));
+}
+.about-img-placeholder{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:4rem;
+  letter-spacing:.1em;
+  color:rgba(255,255,255,.1);
+  position:relative;z-index:1;
+  text-align:center;
+  line-height:1;
+}
+.about-img-placeholder span{
+  display:block;font-size:1rem;
+  color:var(--muted);
+  letter-spacing:.15em;
+  margin-top:.5rem;
+}
+.about-badge-float{
+  position:absolute;
+  bottom:-1.5rem;right:-1.5rem;
+  background:linear-gradient(135deg,var(--gold),var(--gold2));
+  color:var(--navy);
+  padding:1rem 1.4rem;
+  border-radius:12px;
+  font-weight:700;
+  font-size:.8rem;
+  letter-spacing:.06em;
+  box-shadow:0 8px 30px rgba(240,180,41,.4);
+  text-align:center;
+  line-height:1.3;
+  max-width:140px;
+}
+.about-badge-float strong{display:block;font-size:1.5rem;font-family:'Bebas Neue',sans-serif;letter-spacing:.05em}
+
+.about-content{}
+.about-text{
+  color:var(--muted);
+  line-height:1.8;
+  margin-bottom:1.4rem;
+  font-size:.95rem;
+}
+.about-text strong{color:var(--white)}
+.about-features{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:.8rem;
+  margin:1.8rem 0;
+}
+.about-feature{
+  display:flex;
+  gap:.7rem;
+  align-items:flex-start;
+}
+.about-feature-icon{
+  width:32px;height:32px;
+  background:rgba(41,121,255,.12);
+  border:1px solid rgba(41,121,255,.25);
+  border-radius:7px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:.95rem;
+  flex-shrink:0;
+  margin-top:.1rem;
+}
+.about-feature-text{font-size:.83rem;color:var(--muted);line-height:1.5}
+.about-feature-text strong{display:block;color:var(--white);font-size:.88rem;margin-bottom:.15rem}
+
+/* ── DATES ── */
+.dates-section{
+  background:var(--navy2);
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+}
+.dates-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:1.5rem;
+  margin-top:3rem;
+}
+.date-card{
+  background:var(--navy3);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:1.8rem;
+  position:relative;
+  overflow:hidden;
+  transition:transform .25s,border-color .25s;
+}
+.date-card::before{
+  content:'';
+  position:absolute;
+  top:0;left:0;right:0;
+  height:3px;
+  background:linear-gradient(90deg,var(--blue),var(--cyan));
+}
+.date-card:hover{transform:translateY(-4px);border-color:rgba(41,121,255,.4)}
+.date-card.urgent::before{background:linear-gradient(90deg,var(--gold),var(--gold2))}
+.date-card.urgent{border-color:rgba(240,180,41,.2)}
+.date-icon{font-size:1.8rem;margin-bottom:.8rem}
+.date-card-title{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:1.1rem;
+  letter-spacing:.08em;
+  color:var(--white);
+  margin-bottom:.3rem;
+}
+.date-card-date{
+  font-size:1rem;
+  font-weight:600;
+  color:var(--cyan);
+  margin-bottom:.6rem;
+}
+.date-card.urgent .date-card-date{color:var(--gold)}
+.date-card-desc{font-size:.8rem;color:var(--muted);line-height:1.6}
+
+/* ── PUBLICATION ── */
+.publication-section{padding:6rem 4vw;background:linear-gradient(180deg,var(--navy) 0%,var(--navy2) 100%)}
+.pub-inner{
+  max-width:1100px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:4rem;
+  align-items:center;
+}
+.pub-badge-block{
+  background:var(--card-bg);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:2.5rem;
+  text-align:center;
+  backdrop-filter:blur(10px);
+  position:relative;
+  overflow:hidden;
+}
+.pub-badge-block::after{
+  content:'';
+  position:absolute;
+  width:200px;height:200px;
+  background:radial-gradient(circle,rgba(21,101,192,.3),transparent 70%);
+  bottom:-80px;right:-80px;
+}
+.ieee-logo-big{
+  width:120px;
+  margin:0 auto 1.2rem;
+  background:linear-gradient(135deg,#00599c,#006bbd);
+  border-radius:10px;
+  padding:.8rem 1rem;
+  display:flex;align-items:center;justify-content:center;
+}
+.ieee-logo-big span{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:2.2rem;
+  color:#fff;
+  letter-spacing:.12em;
+}
+.pub-badge-block h3{
+  font-family:'DM Serif Display',serif;
+  font-size:1.5rem;
+  color:var(--white);
+  margin-bottom:.7rem;
+}
+.pub-badge-block p{
+  color:var(--muted);
+  font-size:.87rem;
+  line-height:1.7;
+  margin-bottom:1.4rem;
+}
+.pub-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.5rem;
+  justify-content:center;
+  margin-top:1rem;
+}
+.pub-tag{
+  background:rgba(41,121,255,.1);
+  border:1px solid rgba(41,121,255,.25);
+  color:var(--cyan);
+  font-size:.7rem;
+  font-weight:700;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  padding:.3rem .75rem;
+  border-radius:50px;
+}
+.pub-content .section-title{font-size:2rem}
+.pub-list{list-style:none;margin-top:1.5rem}
+.pub-list li{
+  display:flex;
+  gap:.9rem;
+  align-items:flex-start;
+  padding:.9rem 0;
+  border-bottom:1px solid rgba(21,101,192,.12);
+  font-size:.88rem;
+  color:var(--muted);
+  line-height:1.6;
+}
+.pub-list li::before{
+  content:'✓';
+  width:22px;height:22px;
+  background:rgba(41,121,255,.15);
+  border:1px solid rgba(41,121,255,.3);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:.7rem;
+  font-weight:700;
+  color:var(--cyan);
+  flex-shrink:0;
+  margin-top:.15rem;
+}
+.pub-list li strong{color:var(--white)}
+
+/* ── WHY ATTEND ── */
+.why-section{background:var(--navy2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.why-cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:1.5rem;
+  margin-top:3rem;
+}
+.why-card{
+  background:var(--navy3);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:2rem;
+  transition:all .25s;
+  position:relative;
+  overflow:hidden;
+}
+.why-card::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  opacity:0;
+  background:linear-gradient(135deg,rgba(41,121,255,.05),transparent);
+  transition:opacity .25s;
+}
+.why-card:hover{transform:translateY(-5px);border-color:rgba(41,121,255,.4)}
+.why-card:hover::after{opacity:1}
+.why-card-num{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:3.5rem;
+  line-height:1;
+  color:rgba(41,121,255,.12);
+  margin-bottom:.5rem;
+}
+.why-card-icon{font-size:2rem;margin-bottom:.8rem}
+.why-card-title{
+  font-family:'DM Serif Display',serif;
+  font-size:1.25rem;
+  color:var(--white);
+  margin-bottom:.6rem;
+}
+.why-card-text{color:var(--muted);font-size:.86rem;line-height:1.75}
+
+/* ── SPONSORS ── */
+.sponsors-section{padding:5rem 4vw}
+.sponsors-inner{max-width:1000px;margin:0 auto;text-align:center}
+.sponsors-row{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:1.5rem;
+  margin-top:2rem;
+}
+.sponsor-item{
+  background:var(--navy3);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:1.5rem 2.5rem;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:.7rem;
+  min-width:180px;
+  transition:all .25s;
+}
+.sponsor-item:hover{border-color:rgba(41,121,255,.4);transform:translateY(-3px)}
+.sponsor-item-label{
+  font-size:.65rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  font-weight:700;
+  color:var(--gold);
+}
+.sponsor-item-name{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:1.6rem;
+  letter-spacing:.1em;
+  color:var(--white);
+}
+.sponsor-item-sub{font-size:.75rem;color:var(--muted)}
+
+/* ── TOPICS ── */
+.topics-list{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.7rem;
+  margin-top:2rem;
+}
+.topic-tag{
+  background:var(--navy3);
+  border:1px solid var(--border);
+  border-radius:8px;
+  padding:.55rem 1rem;
+  font-size:.8rem;
+  font-weight:500;
+  color:var(--muted);
+  transition:all .2s;
+  cursor:default;
+}
+.topic-tag:hover{border-color:var(--cyan);color:var(--cyan);background:rgba(0,180,216,.05)}
+
+/* ── TESTIMONIALS ── */
+.testimonials-section{
+  background:linear-gradient(135deg,var(--navy3),var(--navy));
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+}
+.testimonials-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:1.5rem;
+  margin-top:3rem;
+}
+.testimonial-card{
+  background:var(--card-bg);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:2rem;
+  position:relative;
+}
+.testimonial-card::before{
+  content:'"';
+  position:absolute;
+  top:1rem;right:1.5rem;
+  font-family:'DM Serif Display',serif;
+  font-size:5rem;
+  color:rgba(41,121,255,.15);
+  line-height:1;
+}
+.testimonial-text{
+  color:var(--muted);
+  font-size:.88rem;
+  line-height:1.8;
+  margin-bottom:1.2rem;
+  font-style:italic;
+}
+.testimonial-author{
+  font-weight:600;
+  font-size:.82rem;
+  color:var(--white);
+}
+.testimonial-role{font-size:.75rem;color:var(--cyan);margin-top:.1rem}
+.testimonial-stars{color:var(--gold);font-size:.8rem;margin-bottom:.8rem}
+
+/* ── CTA BANNER ── */
+.cta-banner{
+  background:linear-gradient(135deg,var(--blue) 0%,#1a3a7a 100%);
+  padding:5rem 4vw;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+.cta-banner::before{
+  content:'';
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);
+  background-size:40px 40px;
+}
+.cta-banner-inner{position:relative;z-index:1}
+.cta-banner h2{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(2.5rem,5vw,4rem);
+  letter-spacing:.06em;
+  margin-bottom:.8rem;
+}
+.cta-banner p{
+  color:rgba(255,255,255,.7);
+  max-width:500px;
+  margin:0 auto 2rem;
+  font-size:.97rem;
+}
+.cta-banner-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+
+/* ── CONTACT ── */
+.contact-section{padding:6rem 4vw;background:var(--navy2);border-top:1px solid var(--border)}
+.contact-inner{
+  max-width:1000px;margin:0 auto;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:4rem;
+}
+.contact-info-list{
+  list-style:none;
+  margin-top:1.5rem;
+}
+.contact-info-list li{
+  display:flex;
+  gap:1rem;
+  align-items:flex-start;
+  padding:1rem 0;
+  border-bottom:1px solid rgba(21,101,192,.12);
+  font-size:.88rem;
+  color:var(--muted);
+}
+.contact-info-list li:last-child{border-bottom:none}
+.contact-info-list .ci-icon{
+  width:38px;height:38px;
+  background:rgba(41,121,255,.1);
+  border:1px solid var(--border);
+  border-radius:9px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.1rem;
+  flex-shrink:0;
+}
+.contact-info-list .ci-text strong{display:block;color:var(--white);margin-bottom:.15rem}
+.contact-info-list a{color:var(--cyan);text-decoration:none}
+.contact-form-card{
+  background:var(--card-bg);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:2.5rem;
+}
+.contact-form-card h3{
+  font-family:'DM Serif Display',serif;
+  font-size:1.5rem;
+  color:var(--white);
+  margin-bottom:1.5rem;
+}
+.form-row{margin-bottom:1.2rem}
+.form-row label{
+  display:block;
+  font-size:.75rem;
+  font-weight:600;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin-bottom:.5rem;
+}
+.form-row input,.form-row textarea,.form-row select{
+  width:100%;
+  background:rgba(21,101,192,.06);
+  border:1px solid var(--border);
+  border-radius:8px;
+  padding:.75rem 1rem;
+  color:var(--white);
+  font-family:'DM Sans',sans-serif;
+  font-size:.88rem;
+  outline:none;
+  transition:border-color .2s;
+}
+.form-row input:focus,.form-row textarea:focus,.form-row select:focus{border-color:var(--blue-light)}
+.form-row textarea{height:110px;resize:vertical}
+
+/* ── FOOTER ── */
+footer{
+  background:var(--navy);
+  border-top:1px solid var(--border);
+  padding:3rem 4vw 2rem;
+}
+.footer-inner{
+  max-width:1100px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:1.5fr 1fr 1fr 1fr;
+  gap:3rem;
+  margin-bottom:2.5rem;
+}
+.footer-brand .nav-logo{margin-bottom:1rem;display:inline-flex}
+.footer-brand p{font-size:.82rem;color:var(--muted);line-height:1.7;max-width:260px}
+.footer-col h4{
+  font-size:.72rem;
+  font-weight:700;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  color:var(--white);
+  margin-bottom:1rem;
+}
+.footer-col ul{list-style:none}
+.footer-col ul li{margin-bottom:.5rem}
+.footer-col ul a{
+  font-size:.82rem;
+  color:var(--muted);
+  text-decoration:none;
+  transition:color .2s;
+}
+.footer-col ul a:hover{color:var(--cyan)}
+.footer-bottom{
+  border-top:1px solid var(--border);
+  padding-top:1.5rem;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:1rem;
+  flex-wrap:wrap;
+}
+.footer-bottom p{font-size:.75rem;color:var(--muted)}
+.footer-social{display:flex;gap:.6rem}
+.social-btn{
+  width:34px;height:34px;
+  background:rgba(21,101,192,.15);
+  border:1px solid var(--border);
+  border-radius:7px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:.85rem;
+  color:var(--muted);
+  text-decoration:none;
+  transition:all .2s;
+}
+.social-btn:hover{background:var(--blue);color:#fff;border-color:var(--blue)}
+
+/* ── ANNOUNCEMENT STRIP ── */
+.announce{
+  background:linear-gradient(90deg,var(--gold),#e09400);
+  color:var(--navy);
+  padding:.6rem 4vw;
+  text-align:center;
+  font-size:.8rem;
+  font-weight:700;
+  letter-spacing:.06em;
+}
+.announce a{color:var(--navy);text-decoration:underline}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .hero-card{display:none}
+  .about-grid,.pub-inner,.contact-inner{grid-template-columns:1fr}
+  .footer-inner{grid-template-columns:1fr 1fr}
+}
+@media(max-width:650px){
+  .nav-links{display:none}
+  .footer-inner{grid-template-columns:1fr}
+  .hero-title{font-size:3.2rem}
+}
+</style>
+</head>
+<body>
+
+<!-- ANNOUNCEMENT -->
+<div class="announce">
+  🎉 ETIC-2026 Proceedings will be published in IEEE Xplore &amp; indexed in Scopus — <a href="#">Submit Your Paper Now</a>
+</div>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  December 11–12, 2026
+  <span>•</span>
+  Pacific States University, Los Angeles, California, USA
+  <span>•</span>
+  Hybrid Mode
+  <span>•</span>
+  IEEE Conference ID: 72338
+</div>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">
+    <div class="nav-logo-badge">ETIC</div>
+    <div class="nav-logo-text">
+      <strong>ETIC-2026</strong>
+      <small>Engineering, Technology &amp; Innovation</small>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About ETIC</a></li>
+    <li><a href="#topics">Topics</a></li>
+    <li><a href="#dates">Key Dates</a></li>
+    <li><a href="#publication">Publication</a></li>
+    <li><a href="#committee">Committee</a></li>
+    <li><a href="#speakers">Speakers</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-cta">
+    <a class="btn btn-outline" href="https://ieeexplore.ieee.org/xpl/conhome/11484059/proceeding" target="_blank">IEEE Xplore</a>
+    <a class="btn btn-primary" href="https://cmt3.research.microsoft.com/ETIC2026" target="_blank">Submit Paper</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+
+  <div class="hero-inner">
+    <div class="hero-badge">IEEE Approved Conference &nbsp;|&nbsp; ID: 72338</div>
+    <h1 class="hero-title">
+      <span class="line1">Engineering,</span>
+      <span class="line2">Technology &amp;</span>
+      <span class="line3">Innovation</span>
+    </h1>
+    <p class="hero-sub">
+      Join world-class researchers, engineers, and innovators at <strong>ETIC-2026</strong>. 
+      Present your work, advance the frontier, and connect with the brightest minds across EEE, AI, IoT, and emerging technologies.
+    </p>
+    <div class="hero-actions">
+      <a class="btn btn-gold" href="https://cmt3.research.microsoft.com/ETIC2026" target="_blank">
+        📄 Submit Manuscript
+      </a>
+      <a class="btn btn-primary" href="#about">
+        🔍 Learn More
+      </a>
+      <a class="btn btn-outline" href="#contact">
+        ✉ Contact Us
+      </a>
+    </div>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <div class="icon">📅</div>
+        <div>
+          <strong>Dec 11–12, 2026</strong>
+          <span>Conference Date</span>
+        </div>
+      </div>
+      <div class="hero-meta-item">
+        <div class="icon">📍</div>
+        <div>
+          <strong>Pacific States University</strong>
+          <span>Los Angeles, CA, USA</span>
+        </div>
+      </div>
+      <div class="hero-meta-item">
+        <div class="icon">🌐</div>
+        <div>
+          <strong>Hybrid Mode</strong>
+          <span>In-Person &amp; Virtual</span>
+        </div>
+      </div>
+      <div class="hero-meta-item">
+        <div class="icon">📚</div>
+        <div>
+          <strong>IEEE Xplore</strong>
+          <span>Proceedings Published</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Info Card -->
+  <div class="hero-card">
+    <div class="hero-card-title">📋 Conference At A Glance</div>
+    <div class="hero-card-row">
+      <span class="label">Full Name</span>
+      <span class="val">Engineering, Technology &amp; Innovation Conference</span>
+    </div>
+    <div class="hero-card-row">
+      <span class="label">Edition</span>
+      <span class="val">ETIC-2026</span>
+    </div>
+    <div class="hero-card-row">
+      <span class="label">Date</span>
+      <span class="val">December 11–12, 2026</span>
+    </div>
+    <div class="hero-card-row">
+      <span class="label">Mode</span>
+      <span class="val">Hybrid (In-Person + Virtual)</span>
+    </div>
+    <div class="hero-card-row">
+      <span class="label">Venue</span>
+      <span class="val">Pacific States University, LA, CA, USA</span>
+    </div>
+    <div class="hero-card-row">
+      <span class="label">Publisher</span>
+      <span class="val"><span class="badge-ieee">IEEE Xplore</span></span>
+    </div>
+    <div class="hero-card-row">
+      <span class="label">Indexing</span>
+      <span class="val">Scopus &amp; Leading Databases</span>
+    </div>
+    <div class="hero-card-row">
+      <span class="label">IEEE Conf. ID</span>
+      <span class="val"><a href="https://conferences.ieee.org/conferences_events/conferences/conferencedetails/72338" target="_blank" style="color:var(--cyan);text-decoration:none">72338 ↗</a></span>
+    </div>
+    <div style="margin-top:1.2rem">
+      <a class="btn btn-primary" href="https://cmt3.research.microsoft.com/ETIC2026" target="_blank" style="width:100%;justify-content:center;font-size:.82rem">Submit Your Manuscript →</a>
+    </div>
+  </div>
+</section>
+
+<!-- COUNTDOWN -->
+<div class="countdown-bar" id="countdown-section">
+  <div class="countdown-label">⏳ Countdown to ETIC-2026 — December 11, 2026</div>
+  <div class="countdown-units">
+    <div class="countdown-unit">
+      <div class="countdown-num" id="cd-days">000</div>
+      <div class="countdown-unit-label">Days</div>
+    </div>
+    <div class="countdown-unit">
+      <div class="countdown-num" id="cd-hours">00</div>
+      <div class="countdown-unit-label">Hours</div>
+    </div>
+    <div class="countdown-unit">
+      <div class="countdown-num" id="cd-mins">00</div>
+      <div class="countdown-unit-label">Minutes</div>
+    </div>
+    <div class="countdown-unit">
+      <div class="countdown-num" id="cd-secs">00</div>
+      <div class="countdown-unit-label">Seconds</div>
+    </div>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stats-inner">
+    <div class="stat-cell">
+      <div class="stat-num">5<span class="stat-suffix">+</span></div>
+      <div class="stat-label">Years Running</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num">28<span class="stat-suffix"></span></div>
+      <div class="stat-label">Days to IEEE Xplore</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num">300<span class="stat-suffix">+</span></div>
+      <div class="stat-label">Past Authors</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num">40<span class="stat-suffix">+</span></div>
+      <div class="stat-label">Countries Represented</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num">100<span class="stat-suffix">%</span></div>
+      <div class="stat-label">Publication Rate</div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="section-inner">
+    <div class="section-eyebrow">About the Conference</div>
+    <h2 class="section-title">Welcome to <em>ETIC-2026</em></h2>
+    <p class="section-desc">Dedicated to exploring the latest advancements in emerging technologies, engineering, electronics, and electrical engineering — since 2021.</p>
+
+    <div class="about-grid">
+      <div class="about-visual">
+        <div class="about-img-frame">
+          <div class="about-img-placeholder">
+            ETIC
+            <span>Since 2021</span>
+          </div>
+        </div>
+        <div class="about-badge-float">
+          <strong>28 Days</strong>
+          Published in<br>IEEE Xplore
+        </div>
+      </div>
+
+      <div class="about-content">
+        <p class="about-text">
+          <strong>ETIC-2026</strong> is an IEEE-approved international conference that invites researchers, academics, industry professionals, and policymakers across EEE, physics, applied engineering, and smart solutions to share insights and foster collaborations.
+        </p>
+        <p class="about-text">
+          ETIC-2026 is approved by IEEE to publish proceedings in <strong>IEEE Xplore</strong>, indexed in <strong>Scopus</strong> at their discretion. Since 2021, our previous conference proceedings have been published in IEEE Xplore within just 28 days.
+        </p>
+        <p class="about-text">
+          This conference serves as a <strong>discovery tool</strong>, a <strong>collaboration tool</strong>, and a <strong>visibility tool</strong> — giving early-career scholars and doctoral students a prestigious international platform.
+        </p>
+        <div class="about-features">
+          <div class="about-feature">
+            <div class="about-feature-icon">🔬</div>
+            <div class="about-feature-text"><strong>Discovery</strong>Access to the latest peer-reviewed findings in AI, IoT, quantum computing, robotics, and more.</div>
+          </div>
+          <div class="about-feature">
+            <div class="about-feature-icon">🤝</div>
+            <div class="about-feature-text"><strong>Collaboration</strong>Interdisciplinary partnerships with researchers, startups, and policymakers.</div>
+          </div>
+          <div class="about-feature">
+            <div class="about-feature-icon">🌍</div>
+            <div class="about-feature-text"><strong>Visibility</strong>Present your work on an international stage, gain citations, and be scouted for joint projects.</div>
+          </div>
+          <div class="about-feature">
+            <div class="about-feature-icon">📖</div>
+            <div class="about-feature-text"><strong>Publication</strong>Proceedings submitted to IEEE Xplore and indexed in Scopus within 28 days.</div>
+          </div>
+        </div>
+        <div style="margin-top:1.5rem;display:flex;gap:.8rem;flex-wrap:wrap">
+          <a class="btn btn-primary" href="https://conferences.ieee.org/conferences_events/conferences/conferencedetails/72338" target="_blank">IEEE Approval ↗</a>
+          <a class="btn btn-outline" href="https://ieeexplore.ieee.org/xpl/conhome/11484059/proceeding" target="_blank">Past Publications</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOPICS -->
+<section class="section" id="topics" style="padding-top:0">
+  <div class="section-inner">
+    <div class="section-eyebrow">Research Areas</div>
+    <h2 class="section-title">Conference <em>Topics</em></h2>
+    <p class="section-desc">We welcome original research across a broad spectrum of engineering and technology disciplines.</p>
+    <div class="topics-list">
+      <div class="topic-tag">Artificial Intelligence & Machine Learning</div>
+      <div class="topic-tag">Internet of Things (IoT)</div>
+      <div class="topic-tag">Robotics & Automation</div>
+      <div class="topic-tag">Electrical Engineering</div>
+      <div class="topic-tag">Electronics & Embedded Systems</div>
+      <div class="topic-tag">Quantum Computing</div>
+      <div class="topic-tag">5G / 6G Communications</div>
+      <div class="topic-tag">Power Systems & Smart Grid</div>
+      <div class="topic-tag">Renewable Energy</div>
+      <div class="topic-tag">Cybersecurity & Blockchain</div>
+      <div class="topic-tag">Signal & Image Processing</div>
+      <div class="topic-tag">Biomedical Engineering</div>
+      <div class="topic-tag">Autonomous Vehicles</div>
+      <div class="topic-tag">Computer Vision</div>
+      <div class="topic-tag">Cloud & Edge Computing</div>
+      <div class="topic-tag">Data Science & Analytics</div>
+      <div class="topic-tag">Smart Cities & Infrastructure</div>
+      <div class="topic-tag">Nanotechnology & Materials</div>
+      <div class="topic-tag">Control Systems</div>
+      <div class="topic-tag">Applied Physics</div>
+    </div>
+  </div>
+</section>
+
+<!-- KEY DATES -->
+<section class="section dates-section" id="dates">
+  <div class="section-inner">
+    <div class="section-eyebrow">Important Deadlines</div>
+    <h2 class="section-title">Key <em>Dates</em></h2>
+    <p class="section-desc">Mark your calendar — all deadlines are strict to maintain our 28-day IEEE Xplore publication timeline.</p>
+    <div class="dates-grid">
+      <div class="date-card">
+        <div class="date-icon">📝</div>
+        <div class="date-card-title">Abstract Submission</div>
+        <div class="date-card-date">August 15, 2026</div>
+        <div class="date-card-desc">Submit your 250-word abstract via Microsoft CMT3 system for initial review.</div>
+      </div>
+      <div class="date-card urgent">
+        <div class="date-icon">📄</div>
+        <div class="date-card-title">Full Paper Submission</div>
+        <div class="date-card-date">September 30, 2026</div>
+        <div class="date-card-desc">IEEE-format full paper (6–8 pages) submitted through the CMT3 portal.</div>
+      </div>
+      <div class="date-card">
+        <div class="date-icon">✅</div>
+        <div class="date-card-title">Acceptance Notification</div>
+        <div class="date-card-date">October 25, 2026</div>
+        <div class="date-card-desc">Authors notified of acceptance, conditional acceptance, or rejection with reviewer comments.</div>
+      </div>
+      <div class="date-card urgent">
+        <div class="date-icon">📸</div>
+        <div class="date-card-title">Camera-Ready Paper</div>
+        <div class="date-card-date">November 15, 2026</div>
+        <div class="date-card-desc">Submit final revised paper in IEEE Xplore-compliant format with copyright form.</div>
+      </div>
+      <div class="date-card">
+        <div class="date-icon">💳</div>
+        <div class="date-card-title">Author Registration</div>
+        <div class="date-card-date">November 20, 2026</div>
+        <div class="date-card-desc">At least one author per accepted paper must register by this date for inclusion in proceedings.</div>
+      </div>
+      <div class="date-card urgent">
+        <div class="date-icon">🎓</div>
+        <div class="date-card-title">Conference Days</div>
+        <div class="date-card-date">December 11–12, 2026</div>
+        <div class="date-card-desc">Two-day conference at Pacific States University, Los Angeles. Hybrid format, 9AM–5PM PST.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICATION -->
+<section class="publication-section" id="publication">
+  <div class="pub-inner">
+    <div class="pub-badge-block">
+      <div class="ieee-logo-big"><span>IEEE</span></div>
+      <h3>Published in IEEE Xplore</h3>
+      <p>ETIC-2026 is <strong>approved by IEEE</strong> to publish its proceedings in IEEE Xplore Digital Library. Our past proceedings were published within just <strong>28 days</strong> of the conference.</p>
+      <div class="pub-tags">
+        <span class="pub-tag">Scopus Indexed</span>
+        <span class="pub-tag">IEEE Xplore</span>
+        <span class="pub-tag">Double Blind Review</span>
+        <span class="pub-tag">Conf ID: 72338</span>
+      </div>
+      <div style="margin-top:1.5rem">
+        <a class="btn btn-primary" href="https://ieeexplore.ieee.org/xpl/conhome/11484059/proceeding" target="_blank" style="justify-content:center;width:100%">Visit Past Publications ↗</a>
+      </div>
+    </div>
+    <div class="pub-content">
+      <div class="section-eyebrow">Publication & Review</div>
+      <h2 class="section-title">Your Research Deserves <em>Global Reach</em></h2>
+      <p class="section-desc" style="margin-bottom:.5rem">Every accepted and presented paper enters a prestigious global archive accessed by millions of researchers worldwide.</p>
+      <ul class="pub-list">
+        <li><div><strong>IEEE Xplore Publication</strong><br>Proceedings published in IEEE Xplore Digital Library within 28 days of the conference.</div></li>
+        <li><div><strong>Scopus Indexing</strong><br>Papers indexed in Scopus database at IEEE's discretion, maximizing visibility and citations.</div></li>
+        <li><div><strong>Rigorous Peer Review</strong><br>All submissions undergo a double-blind peer review process by international experts.</div></li>
+        <li><div><strong>Presentation Required</strong><br>Only papers that are presented will be submitted to proceedings — ensuring a high-quality event.</div></li>
+        <li><div><strong>IEEE Author Rights</strong><br>Authors retain rights to distribute and post their accepted manuscripts with proper attribution.</div></li>
+        <li><div><strong>Microsoft CMT3 System</strong><br>Submissions are managed through Microsoft's CMT3 research management platform.</div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- WHY ATTEND -->
+<section class="section why-section" id="why">
+  <div class="section-inner">
+    <div class="section-eyebrow">Reasons to Join</div>
+    <h2 class="section-title">Why <em>ETIC-2026?</em></h2>
+    <p class="section-desc">Whether you're a senior researcher, doctoral student, or industry professional — ETIC-2026 delivers unmatched value.</p>
+    <div class="why-cards">
+      <div class="why-card">
+        <div class="why-card-num">01</div>
+        <div class="why-card-icon">🔭</div>
+        <h3 class="why-card-title">Discovery Tool</h3>
+        <p class="why-card-text">Access the latest peer-reviewed findings in all relevant areas of engineering, electronics, AI, IoT, quantum computing, and robotics — ensuring you remain at the frontier of technological discourse.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-card-num">02</div>
+        <div class="why-card-icon">🤝</div>
+        <h3 class="why-card-title">Collaboration Hub</h3>
+        <p class="why-card-text">Foster interdisciplinary partnerships and connections with fellow researchers, startups, and policymakers through structured networking sessions and informal dialogues.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-card-num">03</div>
+        <div class="why-card-icon">🌟</div>
+        <h3 class="why-card-title">Visibility Platform</h3>
+        <p class="why-card-text">For early-career scholars and doctoral students: present work on an international platform, gain citations, and be scouted for joint projects, publications, and collaborative grants.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-card-num">04</div>
+        <div class="why-card-icon">📡</div>
+        <h3 class="why-card-title">Hybrid Format</h3>
+        <p class="why-card-text">Attend in-person at Pacific States University in Los Angeles, California, or participate virtually from anywhere in the world — full access to all sessions and networking.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-card-num">05</div>
+        <div class="why-card-icon">⚡</div>
+        <h3 class="why-card-title">Fast Publication</h3>
+        <p class="why-card-text">Our proven track record: previous conference proceedings published in IEEE Xplore within 28 days of the event — one of the fastest turnaround times in the field.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-card-num">06</div>
+        <div class="why-card-icon">🏛️</div>
+        <h3 class="why-card-title">EEE Priority Focus</h3>
+        <p class="why-card-text">This conference gives priority to EEE (Electrical &amp; Electronic Engineering) scholars. A strong series in the engineering belt with focus on physics, applied engineering, and smart solutions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPONSORS -->
+<section class="sponsors-section" id="sponsors">
+  <div class="sponsors-inner">
+    <div class="section-eyebrow" style="text-align:center">Partners & Sponsors</div>
+    <h2 class="section-title" style="text-align:center">Our <em>Supporters</em></h2>
+    <div class="sponsors-row">
+      <div class="sponsor-item">
+        <div class="sponsor-item-label">💰 Financial Sponsor</div>
+        <div class="sponsor-item-name">WRU</div>
+        <div class="sponsor-item-sub">World Research Union<br>Malaysia | UK | Germany | India</div>
+      </div>
+      <div class="sponsor-item">
+        <div class="sponsor-item-label">⚙️ Technical Co-Sponsor</div>
+        <div class="sponsor-item-name" style="font-size:1.1rem">IEEE SMCS</div>
+        <div class="sponsor-item-sub">IEEE Systems, Man, and<br>Cybernetics Society</div>
+      </div>
+      <div class="sponsor-item">
+        <div class="sponsor-item-label">🏫 Venue Partner</div>
+        <div class="sponsor-item-name" style="font-size:1.1rem">PSU</div>
+        <div class="sponsor-item-sub">Pacific States University<br>Los Angeles, CA, USA</div>
+      </div>
+      <div class="sponsor-item">
+        <div class="sponsor-item-label">📚 Publisher</div>
+        <div class="sponsor-item-name" style="font-size:1.1rem">IEEE</div>
+        <div class="sponsor-item-sub">Institute of Electrical and<br>Electronics Engineers</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section testimonials-section" id="testimonials" style="padding-top:4rem">
+  <div class="section-inner">
+    <div class="section-eyebrow">What Attendees Say</div>
+    <h2 class="section-title">Voices from <em>Past Conferences</em></h2>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">Attending ETIC was a turning point in my research career. My paper was published in IEEE Xplore within three weeks of the conference — the fastest I have ever experienced.</p>
+        <div class="testimonial-author">Dr. A. Rahman</div>
+        <div class="testimonial-role">Senior Researcher, IEEE Member</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">The hybrid format made it accessible for our international team. The quality of presentations and the peer review process were both outstanding and rigorous.</p>
+        <div class="testimonial-author">Prof. S. Kim</div>
+        <div class="testimonial-role">Associate Professor, Applied Engineering</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">As a doctoral student, ETIC gave me the visibility and connections I needed. Within a month of the conference I had two collaboration requests from researchers in Europe.</p>
+        <div class="testimonial-author">M. Hossain</div>
+        <div class="testimonial-role">PhD Candidate, EEE</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner">
+  <div class="cta-banner-inner">
+    <h2>Ready to Share Your Research?</h2>
+    <p>Submit your manuscript by September 30, 2026. All accepted and presented papers will be published in IEEE Xplore.</p>
+    <div class="cta-banner-btns">
+      <a class="btn btn-gold" href="https://cmt3.research.microsoft.com/ETIC2026" target="_blank">Submit via CMT3 →</a>
+      <a class="btn btn-outline" href="#contact">Contact the Chair</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="contact-inner">
+    <div class="contact-info">
+      <div class="section-eyebrow">Get in Touch</div>
+      <h2 class="section-title">Contact <em>ETIC-2026</em></h2>
+      <p class="section-desc" style="margin-bottom:0">Have questions about submission, registration, or the event? Our organizing team is here to help.</p>
+      <ul class="contact-info-list">
+        <li>
+          <div class="ci-icon">✉</div>
+          <div class="ci-text">
+            <strong>Email</strong>
+            <a href="mailto:info@wrunion.org">info@wrunion.org</a>
+          </div>
+        </li>
+        <li>
+          <div class="ci-icon">📞</div>
+          <div class="ci-text">
+            <strong>Phone / WhatsApp</strong>
+            <a href="tel:+491754549168">+49 175 454 9168</a>
+          </div>
+        </li>
+        <li>
+          <div class="ci-icon">📍</div>
+          <div class="ci-text">
+            <strong>Venue Address</strong>
+            <span>Pacific States University, Los Angeles, California, USA</span>
+          </div>
+        </li>
+        <li>
+          <div class="ci-icon">🌐</div>
+          <div class="ci-text">
+            <strong>Organizer</strong>
+            <a href="https://wrunion.org" target="_blank">World Research Union (wrunion.org)</a><br>
+            <small style="color:var(--muted)">Malaysia | UK | Germany | India</small>
+          </div>
+        </li>
+        <li>
+          <div class="ci-icon">🔖</div>
+          <div class="ci-text">
+            <strong>Submission System</strong>
+            <a href="https://cmt3.research.microsoft.com/ETIC2026" target="_blank">Microsoft CMT3 Portal ↗</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="contact-form-card">
+      <h3>Write to the Chair</h3>
+      <div class="form-row">
+        <label>Full Name</label>
+        <input type="text" placeholder="Dr. Jane Smith"/>
+      </div>
+      <div class="form-row">
+        <label>Institution / Affiliation</label>
+        <input type="text" placeholder="University / Organization"/>
+      </div>
+      <div class="form-row">
+        <label>Email Address</label>
+        <input type="email" placeholder="researcher@university.edu"/>
+      </div>
+      <div class="form-row">
+        <label>Subject</label>
+        <select>
+          <option>Paper Submission Inquiry</option>
+          <option>Registration Information</option>
+          <option>Sponsorship Opportunities</option>
+          <option>Committee / Speaker Invitation</option>
+          <option>General Inquiry</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <label>Message</label>
+        <textarea placeholder="Your message…"></textarea>
+      </div>
+      <button class="btn btn-primary" style="width:100%;justify-content:center;padding:.75rem">Send Message →</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a class="nav-logo" href="#">
+        <div class="nav-logo-badge">ETIC</div>
+        <div class="nav-logo-text">
+          <strong>ETIC-2026</strong>
+          <small>Engineering, Technology &amp; Innovation</small>
+        </div>
+      </a>
+      <p>An IEEE-approved international conference dedicated to advancing engineering, technology, and innovation. Hosted at Pacific States University, Los Angeles, CA.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Conference</h4>
+      <ul>
+        <li><a href="#about">About ETIC</a></li>
+        <li><a href="#topics">Topics</a></li>
+        <li><a href="#dates">Key Dates</a></li>
+        <li><a href="#publication">Publication</a></li>
+        <li><a href="#sponsors">Sponsors</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Authors</h4>
+      <ul>
+        <li><a href="https://cmt3.research.microsoft.com/ETIC2026" target="_blank">Submit Paper</a></li>
+        <li><a href="#">Author Guidelines</a></li>
+        <li><a href="#">IEEE Template</a></li>
+        <li><a href="#">Registration</a></li>
+        <li><a href="https://ieeexplore.ieee.org/xpl/conhome/11484059/proceeding" target="_blank">Past Publications</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Links</h4>
+      <ul>
+        <li><a href="https://conferences.ieee.org/conferences_events/conferences/conferencedetails/72338" target="_blank">IEEE Conference</a></li>
+        <li><a href="https://wrunion.org" target="_blank">World Research Union</a></li>
+        <li><a href="https://ieeexplore.ieee.org" target="_blank">IEEE Xplore</a></li>
+        <li><a href="#committee">Committee</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 ETIC — Engineering, Technology and Innovation Conference. IEEE Conference ID: 72338. An initiative of World Research Union.</p>
+    <div class="footer-social">
+      <a class="social-btn" href="#" title="Email">✉</a>
+      <a class="social-btn" href="#" title="LinkedIn">in</a>
+      <a class="social-btn" href="#" title="Twitter/X">𝕏</a>
+      <a class="social-btn" href="#" title="ResearchGate">RG</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// COUNTDOWN
+function updateCountdown() {
+  const target = new Date('2026-12-11T09:00:00');
+  const now = new Date();
+  const diff = target - now;
+  if (diff <= 0) return;
+  const d = Math.floor(diff / 86400000);
+  const h = Math.floor((diff % 86400000) / 3600000);
+  const m = Math.floor((diff % 3600000) / 60000);
+  const s = Math.floor((diff % 60000) / 1000);
+  document.getElementById('cd-days').textContent = String(d).padStart(3,'0');
+  document.getElementById('cd-hours').textContent = String(h).padStart(2,'0');
+  document.getElementById('cd-mins').textContent = String(m).padStart(2,'0');
+  document.getElementById('cd-secs').textContent = String(s).padStart(2,'0');
+}
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+// STAT COUNTER ANIMATION
+function animateCounters() {
+  document.querySelectorAll('.stat-num').forEach(el => {
+    const text = el.textContent;
+    const num = parseFloat(text);
+    if (isNaN(num)) return;
+    let start = 0;
+    const duration = 1800;
+    const step = (timestamp) => {
+      if (!start) start = timestamp;
+      const progress = Math.min((timestamp - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const suffix = el.querySelector('.stat-suffix');
+      const suffixText = suffix ? suffix.textContent : '';
+      el.innerHTML = Math.floor(eased * num) + (suffixText ? `<span class="stat-suffix">${suffixText}</span>` : '');
+      if (progress < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  });
+}
+
+// Intersection Observer for counters
+const statsEl = document.querySelector('.stats');
+const obs = new IntersectionObserver(entries => {
+  if (entries[0].isIntersecting) { animateCounters(); obs.disconnect(); }
+}, { threshold: 0.3 });
+obs.observe(statsEl);
+
+// SMOOTH ACTIVE NAV
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll', () => {
+  const scrollY = window.scrollY + 120;
+  sections.forEach(s => {
+    if (scrollY >= s.offsetTop && scrollY < s.offsetTop + s.offsetHeight) {
+      navLinks.forEach(a => {
+        a.style.color = '';
+        if (a.getAttribute('href') === '#' + s.id) a.style.color = 'var(--white)';
+      });
+    }
+  });
+});
+</script>
+</body>
+</html>
